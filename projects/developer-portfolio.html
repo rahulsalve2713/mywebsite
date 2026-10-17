@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Developer Portfolio — Rahul Salve</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="stylesheet" href="../project.css">
+</head>
+<body>
+
+<div class="wrap">
+
+  <div class="top-bar">
+    <a href="../index.html" class="back-link">← Back to portfolio</a>
+    <button class="theme-toggle" aria-label="Toggle theme">◐</button>
+  </div>
+
+  <header class="project-header">
+    <span class="project-date">2026</span>
+    <h1>Developer Portfolio</h1>
+    <div class="project-role">Hand-built HTML · CSS · Vanilla JavaScript</div>
+    <p class="project-lede">
+      The site you're looking at — a single-file portfolio, no frameworks, no
+      build step, deployed on GitHub Pages.
+    </p>
+        <div class="project-actions">
+      <a href="https://rahulsalve2713.github.io/mywebsite/" target="_blank" rel="noopener" class="primary">View live site →</a>
+      <a href="https://github.com/rahulsalve2713/mywebsite" target="_blank" rel="noopener">View on GitHub →</a>
+    </div>
+  </header>
+
+  <section>
+    <h2>The problem</h2>
+    <p>
+      Every portfolio template looks the same. Frameworks add megabytes of JS to
+      a page that could be one HTML file.
+    </p>
+    <p>
+      A portfolio is a page. It doesn't need a router, a bundler, or a
+      <code>node_modules</code> folder — it needs to load fast and read clearly.
+    </p>
+  </section>
+
+  <section>
+    <h2>What I built</h2>
+    <ul>
+      <li><strong>Hand-written HTML/CSS/JS</strong> with no dependencies</li>
+      <li><strong>Dark mode</strong> with system preference detection + localStorage</li>
+      <li><strong>Mobile-responsive layout</strong> with hamburger nav</li>
+      <li><strong>Print stylesheet</strong> for clean PDF export</li>
+      <li><strong>AJAX contact form</strong> via Formspree</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>How it works</h2>
+    <p>
+      Single-page site, deployed as static HTML to GitHub Pages.
+    </p>
+  </section>
+
+  <section>
+    <h2>Tech stack</h2>
+    <div class="tech-chips">
+      <span>HTML</span>
+      <span>CSS</span>
+      <span>JavaScript</span>
+      <span>GitHub Pages</span>
+      <span>Formspree</span>
+    </div>
+  </section>
+
+  <footer class="project-footer">
+    <span>Rahul Salve · 2026</span>
+    <span>
+      <a href="../index.html">← Back</a> ·
+      <a href="https://github.com/rahulsalve2713/YOUR-REPO-NAME" target="_blank" rel="noopener">GitHub</a> ·
+      <a href="mailto:rahulsalve984@gmail.com">Email</a>
+    </span>
+  </footer>
+
+</div>
+
+<script>
+  const themeBtn = document.querySelector('.theme-toggle');
+  const root = document.documentElement;
+  const saved = localStorage.getItem('theme');
+  if (saved) root.setAttribute('data-theme', saved);
+  else if (window.matchMedia('(prefers-color-scheme: dark)').matches) root.setAttribute('data-theme', 'dark');
+
+  const updateIcon = () => {
+    themeBtn.textContent = root.getAttribute('data-theme') === 'dark' ? '☀' : '◐';
+  };
+  updateIcon();
+
+  themeBtn.addEventListener('click', () => {
+    const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+    updateIcon();
+  });
+</script>
+
+</body>
+</html>

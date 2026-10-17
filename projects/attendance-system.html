@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Face &amp; Voice Recognition Attendance — Rahul Salve</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="stylesheet" href="../project.css">
+</head>
+<body>
+
+<div class="wrap">
+
+  <div class="top-bar">
+    <a href="../index.html" class="back-link">← Back to portfolio</a>
+    <button class="theme-toggle" aria-label="Toggle theme">◐</button>
+  </div>
+
+  <header class="project-header">
+    <span class="project-date">2025</span>
+    <h1>Face &amp; Voice Recognition Attendance</h1>
+    <div class="project-role">Face recognition · Voice identification · CSV + SQLite logging</div>
+    <p class="project-lede">
+      Real-time attendance tracking using face and voice — because proxies are
+      trivial and paper logs are tedious.
+    </p>
+    <div class="project-actions">
+      <a href="https://github.com/rahulsalve2713/YOUR-REPO-NAME" target="_blank" rel="noopener" class="primary">View on GitHub →</a>
+    </div>
+  </header>
+
+  <section>
+    <h2>The problem</h2>
+    <p>
+      Attendance at scale is a pain. Proxies are easy, manual logs don't scale,
+      and verification is impossible after the fact.
+    </p>
+    <p>
+      A signature on a sheet proves nothing. The question behind this project was
+      whether two independent signals — a face and a voice — could make faking
+      attendance meaningfully harder.
+    </p>
+  </section>
+
+  <section>
+    <h2>What I built</h2>
+    <ul>
+      <li><strong>Face recognition</strong> for primary identification</li>
+      <li><strong>Voice recognition</strong> as a secondary check</li>
+      <li><strong>Real-time logging</strong> to CSV and SQLite</li>
+      <li><strong>Verification</strong> against ground truth</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>How it works</h2>
+    <ol>
+      <li>Student approaches the camera</li>
+      <li>Face is recognized against the enrolled set</li>
+      <li>A voice sample verifies identity</li>
+      <li>Attendance is logged with a timestamp</li>
+      <li>Admin view shows daily attendance and false-positive flags</li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>What broke</h2>
+    <p>
+      <em>[Fill in — 1 to 2 paragraphs on what actually went wrong during development.]</em>
+    </p>
+    <p>
+      [Examples of what to write here: face recognition failed under poor lighting
+      and side angles, voice checks broke down with classroom background noise,
+      the same student got logged twice when they stayed in frame, enrolled photos
+      were too few per person. Pick what actually happened, describe it honestly,
+      and note how you worked around it.]
+    </p>
+  </section>
+
+  <section>
+    <h2>What I'd do differently</h2>
+    <p>
+      <em>[Fill in — the most important section on the page.]</em>
+    </p>
+    <p>
+      [One short paragraph on what you'd change if you started over. Examples:
+      "I'd add debouncing so one person can't produce three log entries," "I'd
+      test in the actual room instead of my desk," "I'd collect more enrollment
+      images per person before tuning thresholds." Recruiters scan for this — it
+      proves you can reflect, not just build.]
+    </p>
+  </section>
+
+  <section>
+    <h2>Tech stack</h2>
+    <div class="tech-chips">
+      <span>Python</span>
+      <span>OpenCV</span>
+      <span>Speech recognition</span>
+      <span>SQLite</span>
+      <span>CSV</span>
+    </div>
+  </section>
+
+  <footer class="project-footer">
+    <span>Rahul Salve · 2025</span>
+    <span>
+      <a href="../index.html">← Back</a> ·
+      <a href="https://github.com/rahulsalve2713/YOUR-REPO-NAME" target="_blank" rel="noopener">GitHub</a> ·
+      <a href="mailto:rahulsalve984@gmail.com">Email</a>
+    </span>
+  </footer>
+
+</div>
+
+<script>
+  const themeBtn = document.querySelector('.theme-toggle');
+  const root = document.documentElement;
+  const saved = localStorage.getItem('theme');
+  if (saved) root.setAttribute('data-theme', saved);
+  else if (window.matchMedia('(prefers-color-scheme: dark)').matches) root.setAttribute('data-theme', 'dark');
+
+  const updateIcon = () => {
+    themeBtn.textContent = root.getAttribute('data-theme') === 'dark' ? '☀' : '◐';
+  };
+  updateIcon();
+
+  themeBtn.addEventListener('click', () => {
+    const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+    updateIcon();
+  });
+</script>
+
+</body>
+</html>

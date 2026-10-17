@@ -4,13 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Rahul Salve — Engineer & Developer</title>
-<meta name="description" content="Rahul Salve — B.Tech Electronics & Computer Engineering student at MIT ADT University. Building AI/GenAI and full-stack systems.">
+<meta name="description" content="Rahul Salve — B.Tech Electronics & Computer Engineering student at MIT ADT University. Building systems that sense the physical world: computer vision, IoT, and AI.">
 
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="apple-touch-icon" href="profile.jpeg">
 
 <meta property="og:title" content="Rahul Salve — Engineer & Developer">
-<meta property="og:description" content="B.Tech student building AI/GenAI and full-stack systems.">
+<meta property="og:description" content="B.Tech student building systems that sense the physical world — vision, audio, sensors.">
 <meta property="og:image" content="https://rahulsalve2713.github.io/mywebsite/profile.jpeg">
 <meta property="og:url" content="https://rahulsalve2713.github.io/mywebsite/">
 <meta property="og:type" content="website">
@@ -230,13 +230,7 @@
     padding-bottom: 16px;
     border-bottom: 1px solid var(--line);
   }
-  .section-num {
-    font-family: var(--font-display);
-    font-size: 0.85rem;
-    font-style: italic;
-    color: var(--accent);
-    font-weight: 400;
-  }
+
   .section-head h2 {
     font-family: var(--font-display);
     font-size: clamp(1.4rem, 3vw, 1.9rem);
@@ -329,6 +323,55 @@
     color: var(--muted);
     border-radius: 100px;
     letter-spacing: 0.02em;
+  }
+    .project-links {
+    display: flex;
+    gap: 18px;
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid var(--line);
+  }
+  .project-links a {
+    font-size: 0.82rem;
+    color: var(--accent);
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    transition: gap 0.3s var(--ease), color 0.3s var(--ease);
+  }
+  .project-links a:hover {
+    gap: 8px;
+    color: var(--ink);
+  }
+
+    .project-detail-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 14px;
+    padding: 7px 14px;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    border-radius: 6px;
+    font-size: 0.82rem;
+    font-weight: 500;
+    transition: all 0.3s var(--ease);
+  }
+  .project-detail-btn:hover {
+    background: var(--accent);
+    color: var(--bg);
+    gap: 10px;
+  }
+  .project-detail-btn .arrow {
+    transition: transform 0.3s var(--ease);
+  }
+  .project-detail-btn:hover .arrow {
+    transform: translateX(2px);
+  }
+
+  html[data-theme="dark"] .project-links a:hover {
+    color: var(--ink);
   }
 
   /* ---------- EDUCATION ---------- */
@@ -658,6 +701,61 @@ html[data-theme="dark"] .form-status.error {
   border-color: #4A2A2A;
 }
 
+  /* =========================================
+     HERO "NOW" STRIP
+     ========================================= */
+  .hero-now {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 16px;
+    background: var(--accent-soft);
+    border-radius: 100px;
+    font-size: 0.82rem;
+    color: var(--ink);
+    margin-bottom: 24px;
+    margin-top: -8px;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+    line-height: 1.4;
+  }
+  .hero-now strong {
+    font-weight: 500;
+    color: var(--ink);
+  }
+  .hero-now-dot {
+    width: 8px;
+    height: 8px;
+    background: #3ecf8e;
+    border-radius: 50%;
+    box-shadow: 0 0 0 3px rgba(62, 207, 142, 0.25);
+    flex-shrink: 0;
+    animation: heroPulse 2s ease-in-out infinite;
+  }
+  @keyframes heroPulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+  @media (max-width: 640px) {
+    .hero-now { font-size: 0.75rem; padding: 6px 12px; gap: 8px; }
+  }
+  html[data-theme="dark"] .hero-now {
+    background: var(--accent-soft);
+  }
+
+  /* =========================================
+     PROJECT ROLE LINE
+     ========================================= */
+  .project-role {
+    font-size: 0.78rem;
+    color: var(--muted);
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    margin-bottom: 12px;
+    line-height: 1.4;
+  }
+
+
 /* =========================================
    PRINT STYLESHEET
    ========================================= */
@@ -696,7 +794,6 @@ html[data-theme="dark"] .form-status.error {
   }
   .section-head { border-bottom: 1px solid #ccc; padding-bottom: 6px; margin-bottom: 12px; }
   .section-head h2 { font-size: 12pt; }
-  .section-num { color: #666; }
   .about p { color: #333; font-size: 10pt; }
   .project-card {
     border: 1px solid #ddd !important;
@@ -762,18 +859,23 @@ html[data-theme="dark"] .form-status.error {
     <div class="hero-grid">
       <div>
         <p class="hero-eyebrow">Engineer · Builder · Learner</p>
-        <h1>Hi, I'm Rahul.<br>I build <em>useful</em> things.</h1>
-        <p class="hero-lede">
-          B.Tech Electronics &amp; Computer Engineering student at MIT ADT University, Pune.
-          I work at the intersection of AI/GenAI and full-stack development — building
-          end-to-end systems that solve real problems.
+                <h1>Hi, I'm Rahul.<br>I build things that <em>sense</em> the real world.</h1>
+                <div class="hero-now">
+          <span class="hero-now-dot"></span>
+          Currently building <strong>Smart Trolley</strong> · Open to <strong>product engineering roles</strong>
+        </div>
+                <p class="hero-lede">
+          B.Tech Electronics &amp; Computer Engineering at MIT ADT University, Pune.
+          I build systems that sense the physical world — vision, audio, sensors —
+          and turn it into something useful: an automated checkout, an attendance log,
+          a verified recording.
         </p>
         <div class="hero-meta">
   <a href="mailto:rahulsalve984@gmail.com">rahulsalve984@gmail.com</a>
   <a href="https://linkedin.com/in/rahul-salve" target="_blank" rel="noopener">LinkedIn ↗</a>
   <a href="https://github.com/rahulsalve2713" target="_blank" rel="noopener">GitHub ↗</a>
   <a href="tel:+918180054710">+91 81800 54710</a>
-  <a href="resume.pdf" download class="resume-link">Download résumé ↓</a>
+  <a href="resume.pdf" download class="resume-link">Download resume ↓</a>
 </div>
       </div>
 
@@ -784,31 +886,39 @@ html[data-theme="dark"] .form-status.error {
     </div>
   </section>
 
-  <section id="about" class="about">
+     <section id="about" class="about">
     <div class="section-head">
-      <span class="section-num">01</span>
       <h2>About</h2>
     </div>
     <p>
-      I'm a Last year engineering student with hands-on experience across
-      <strong>AI/GenAI (LangChain, RAG)</strong> and <strong>full-stack development</strong>.
-      I've built and shipped end-to-end systems — an NLP-powered resume builder,
-      a RAG-based forensic audio analyzer, and a face/voice recognition attendance system.
+      I'm a final-year Electronics &amp; Computer Engineering student, and my work
+      has a consistent shape: <strong>take a real-world signal — a camera feed,
+      a voice recording, a sensor — and turn it into a system that does something
+      useful with it</strong>.
     </p>
     <p>
-      Right now I'm building an <strong>IoT + computer vision smart trolley</strong>
-      with a Firebase-backed companion app for automated retail billing.
-      I like problems that force me to learn three new things at once.
+      That shape has taken me across the stack. A computer-vision cart that bills
+      automatically. A RAG system that verifies whether a recording is authentic.
+      A face-and-voice tracker that logs attendance in real time. Sometimes the
+      answer needs a camera; sometimes it needs a language model. I pick whichever
+      the problem actually calls for, then build the rest around it.
     </p>
     <p>
-      Looking for AI/ML engineering roles where I can bring strong analytical
-      thinking, systems-level problem solving, and a habit of shipping.
+      Right now I'm building a <strong>smart trolley</strong> — computer vision
+      and IoT sensors on the cart, a Firebase backend, and a companion app for
+      automated retail billing. I like problems where the boundary between hardware
+      and software is the interesting part.
+    </p>
+    <p>
+      I'm looking for roles at <strong>product-based companies</strong> where that
+      boundary matters — embedded systems, IoT, consumer electronics, or AI-powered
+      products. What I bring: strong analytical thinking, systems-level problem
+      solving, and a bias toward building over talking.
     </p>
   </section>
 
   <section id="skills">
     <div class="section-head">
-      <span class="section-num">02</span>
       <h2>Skills</h2>
     </div>
     <div class="skills-grid">
@@ -850,7 +960,6 @@ html[data-theme="dark"] .form-status.error {
 
   <section id="projects">
     <div class="section-head">
-      <span class="section-num">03</span>
       <h2>Projects</h2>
     </div>
     <div class="projects">
@@ -859,10 +968,11 @@ html[data-theme="dark"] .form-status.error {
         <div class="project-top">
           <span class="project-date">Jan 2026 — Present</span>
         </div>
-        <h3>Smart Trolley with Automated Billing</h3>
+        <h3>Automatic Moving Smart Trolley</h3>
+        <div class="project-role">Computer vision pipeline · IoT integration · Firebase backend</div>
         <p>
-          A App controlled cart integrating computer vision, IoT sensors,
-          and autonomous navigation. Real-time item detection feeds an automated
+          An app-controlled cart integrating computer vision, IoT sensors,
+          and app controlled navigation. Real-time item detection feeds an automated
           billing and digital receipt pipeline, synced through a Firebase-backed
           companion app.
         </p>
@@ -872,6 +982,10 @@ html[data-theme="dark"] .form-status.error {
           <span>Firebase</span>
           <span>Python</span>
         </div>
+        <div class="project-links">
+          <a href="https://github.com/rahulsalve2713/trolley-mate" target="_blank" rel="noopener">View on GitHub →</a>
+        </div>
+        <a href="projects/smart-trolley.html" class="project-detail-btn">More details <span class="arrow">→</span></a>
       </article>
 
       <article class="project-card">
@@ -879,6 +993,7 @@ html[data-theme="dark"] .form-status.error {
           <span class="project-date">Mar 2026 — Present</span>
         </div>
         <h3>Forensic Audio Analyzer</h3>
+        <div class="project-role">RAG architecture · Speech transcription · Evaluation pipeline</div>
         <p>
           A Retrieval-Augmented Generation (RAG) system that analyzes voice
           recordings for authenticity. Includes a forensic-grade speech
@@ -890,24 +1005,34 @@ html[data-theme="dark"] .form-status.error {
           <span>API</span>
           <span>NLP</span>
         </div>
+        <div class="project-links">
+          <a href="https://github.com/rahulsalve2713/forensic-audio-analyzer" target="_blank" rel="noopener">View on GitHub →</a>
+        </div>
+        <a href="projects/forensic-audio.html" class="project-detail-btn">More details <span class="arrow">→</span></a>
       </article>
 
       <article class="project-card">
         <h3>AI Resume Builder</h3>
+        <div class="project-role">NLP parsing · Flask backend · Template generation</div>
         <p>
           An NLP-powered tool that parses user input to generate ATS-friendly,
           professional resumes. Built to save time for job-seekers who
-          shouldn't have to find a template.
+          shouldn't have to fight a template.
         </p>
         <div class="project-tags">
           <span>NLP</span>
           <span>Python</span>
           <span>Flask</span>
         </div>
+        <div class="project-links">
+          <a href="https://github.com/rahulsalve2713/AI-Resume-Builder" target="_blank" rel="noopener">View on GitHub →</a>
+        </div>
+        <a href="projects/ai-resume-builder.html" class="project-detail-btn">More details <span class="arrow">→</span></a>
       </article>
 
       <article class="project-card">
-        <h3>Face &amp; Voice Recognition Attendance</h3>
+        <h3>Face &amp; fingerprint Recognition Attendance</h3>
+        <div class="project-role">Face recognition · fingerprint identification · CSV + SQLite logging</div>
         <p>
           Real-time attendance tracking using face and fingerprint recognition,
           with timestamp logging to CSV and SQLite and systematic
@@ -915,13 +1040,14 @@ html[data-theme="dark"] .form-status.error {
         </p>
         <div class="project-tags">
           <span>Computer Vision</span>
-          <span>Speech</span>
           <span>SQLite</span>
         </div>
+        <a href="projects/attendance-system.html" class="project-detail-btn">More details <span class="arrow">→</span></a>
       </article>
 
       <article class="project-card">
-        <h3>Personal Website</h3>
+        <h3>Developer Portfolio</h3>
+        <div class="project-role">Hand-built HTML · CSS · Vanilla JavaScript</div>
         <p>
           The site you're looking at — hand-built with HTML, CSS, and JavaScript.
           No frameworks, no build step, deployed on GitHub Pages.
@@ -931,6 +1057,11 @@ html[data-theme="dark"] .form-status.error {
           <span>CSS</span>
           <span>JavaScript</span>
         </div>
+        <div class="project-links">
+          <a href="https://rahulsalve2713.github.io/mywebsite/" target="_blank" rel="noopener">Live site →</a>
+          <a href="https://github.com/rahulsalve2713/mywebsite" target="_blank" rel="noopener">Source →</a>
+        </div>
+        <a href="projects/developer-portfolio.html" class="project-detail-btn">More details <span class="arrow">→</span></a>
       </article>
 
     </div>
@@ -938,7 +1069,6 @@ html[data-theme="dark"] .form-status.error {
 
   <section id="education">
     <div class="section-head">
-      <span class="section-num">04</span>
       <h2>Education</h2>
     </div>
     <div class="timeline">
@@ -962,7 +1092,6 @@ html[data-theme="dark"] .form-status.error {
 
   <section id="certs">
     <div class="section-head">
-      <span class="section-num">05</span>
       <h2>Certifications &amp; Achievements</h2>
     </div>
     <div class="cert-list">
@@ -999,13 +1128,15 @@ html[data-theme="dark"] .form-status.error {
 
   <section id="contact">
     <div class="section-head">
-      <span class="section-num">06</span>
       <h2>Get in touch</h2>
     </div>
     <p class="contact-lede">
-      Have a project, a question, or just want to say hi?
-      Drop me a line below, or email me directly at
-      <a href="mailto:rahulsalve984@gmail.com">rahulsalve984@gmail.com</a>.
+      I'm looking for <strong>internships and full-time roles</strong> at
+      <strong>product-based companies</strong>, graduating 2027. If you're building
+      something that sees, hears, senses, or connects — or you just want to talk
+      about that kind of work — I'd love to hear from you. Email me at
+      <a href="mailto:rahulsalve984@gmail.com">rahulsalve984@gmail.com</a>,
+      or use the form below.
     </p>
 
     <form action="https://formspree.io/f/xeaenozo" method="POST">
@@ -1027,7 +1158,7 @@ html[data-theme="dark"] .form-status.error {
   </section>
 
   <footer>
-    <span>© 2026 Rahul Salve</span>
+  <span>© 2026 Rahul Salve · <span style="color: var(--accent);">Building systems that sense the real world</span></span>
     <span>
       <a href="https://www.linkedin.com/in/rahul-salve-360087291?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener">LinkedIn</a> ·
       <a href="https://github.com/rahulsalve2713" target="_blank" rel="noopener">GitHub</a> ·

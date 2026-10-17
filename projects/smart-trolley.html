@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TrolleyMate: Smart Shopping Made Easy — Rahul Salve</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="stylesheet" href="project.css">
+</head>
+<body>
+
+<div class="wrap">
+
+  <div class="top-bar">
+    <a href="../index.html" class="back-link">← Back to portfolio</a>
+    <button class="theme-toggle" aria-label="Toggle theme">◐</button>
+  </div>
+
+  <header class="project-header">
+    <span class="project-date">Jan 2026 — Present</span>
+    <h1>TrolleyMate: Smart Shopping Made Easy</h1>
+    <div class="project-role">Flutter · IoT · Firebase · Product Design</div>
+    <p class="project-lede">
+      A smart shopping trolley ecosystem that eliminates checkout queues. 
+      Customers scan items directly into a physical trolley, which syncs in real-time 
+      to a mobile app and a web-based billing booth.
+    </p>
+    <div class="project-actions">
+      <a href="https://github.com/rahulsalve2713/trolley-mate" target="_blank" rel="noopener" class="primary">View on GitHub →</a>
+    </div>
+  </header>
+
+  <section>
+    <h2>The problem</h2>
+    <p>
+      Retail checkout is slow because the cart doesn't know what's in it. Every
+      item gets scanned manually at the counter — resulting in long queues, human error, 
+      and a bottleneck that ruins the shopping experience.
+    </p>
+    <p>
+      This project asks a simple question: <strong>what if you could scan as you shop, 
+      and just walk out?</strong>
+    </p>
+  </section>
+
+  <section>
+    <h2>What I built</h2>
+    <p>
+      A complete hardware + software ecosystem that tracks items in real-time, 
+      calculates the running bill on the trolley itself, and allows fast, 
+      queue-free checkout at a billing booth.
+    </p>
+    <ul>
+      <li><strong>Customer Mobile App:</strong> Barcode scanning to instantly add items to the cart.</li>
+      <li><strong>Smart Trolley (ESP32):</strong> Physical trolley with an LCD showing the live cart total, controlled via UDP.</li>
+      <li><strong>Billing Booth (Web App):</strong> A laptop dashboard where cashiers pull up a trolley's cart using a 4-digit code for instant checkout.</li>
+      <li><strong>Admin Dashboard:</strong> Full product catalog, category, and user management synced via Firestore.</li>
+      <li><strong>Real-time Sync:</strong> Firebase Realtime Database keeps the phone, trolley LCD, and billing booth perfectly in sync.</li>
+    </ul>
+
+    <figure class="project-media placeholder">
+      Demo video and hardware screenshots coming soon
+    </figure>
+  </section>
+
+  <section>
+    <h2>How it works</h2>
+    <ol>
+      <li>Customer logs into the mobile app and enters the 4-digit code printed on their trolley.</li>
+      <li>As items are added, the customer scans barcodes to add them to the digital cart.</li>
+      <li>The cart instantly syncs to Firebase, updating the ESP32 LCD on the physical trolley.</li>
+      <li>At the exit, the cashier enters the 4-digit code into the Web Billing Booth.</li>
+      <li>The cashier processes the payment, which updates the cart status to "Paid" and clears the session.</li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>What broke</h2>
+    <p>
+      <strong>Firebase Web URL Parsing:</strong> Flutter Web had a major issue parsing the Realtime Database URL from the `firebase_options.dart` file. It kept throwing `FIREBASE FATAL ERROR: Cannot parse Firebase url`. I had to manually instantiate the database using `FirebaseDatabase.instanceFor()` with the explicit URL on every screen.
+    </p>
+    <p>
+      <strong>Barcode Scanner Whitespace:</strong> Scanned barcodes sometimes appended hidden newline characters. When comparing them against the database, they never matched. I had to create a normalization function to aggressively `.trim()` all barcodes on both the admin and customer sides. Also, managing state across three different screens (Admin, Customer, Booth) using local `SharedPreferences` initially caused massive sync issues, forcing a complete migration to Cloud Firestore.
+    </p>
+  </section>
+
+  <section>
+    <h2>What I'd do differently</h2>
+    <p>
+      If I started over, I would build the <strong>hardware-first</strong>. I spent a lot of time perfecting the Flutter UI before the ESP32 was even wired up. Once the hardware was ready, I had to rewrite large chunks of the state management to handle UDP connections and LCD latency. I also would have implemented the Weight Sensor (HX711) from day one. Scanning a barcode is easy to fake (scanning a cheap item while putting an expensive one in the bag). Weight verification is essential for a commercial version.
+    </p>
+  </section>
+
+  <section>
+    <h2>Tech stack</h2>
+    <div class="tech-chips">
+      <span>Flutter</span>
+      <span>Firebase Auth</span>
+      <span>Cloud Firestore</span>
+      <span>Realtime DB</span>
+      <span>ESP32 (C++)</span>
+      <span>Mobile Scanner</span>
+      <span>UDP Sockets</span>
+    </div>
+  </section>
+
+  <footer class="project-footer">
+    <span>Rahul Salve · 2026</span>
+    <span>
+      <a href="../index.html">← Back</a> ·
+      <a href="https://github.com/rahulsalve2713/trolley-mate" target="_blank" rel="noopener">GitHub</a> ·
+      <a href="mailto:rahulsalve984@gmail.com">Email</a>
+    </span>
+  </footer>
+
+</div>
+
+<script>
+  const themeBtn = document.querySelector('.theme-toggle');
+  const root = document.documentElement;
+  const saved = localStorage.getItem('theme');
+  if (saved) root.setAttribute('data-theme', saved);
+  else if (window.matchMedia('(prefers-color-scheme: dark)').matches) root.setAttribute('data-theme', 'dark');
+
+  const updateIcon = () => {
+    themeBtn.textContent = root.getAttribute('data-theme') === 'dark' ? '☀' : '◐';
+  };
+  updateIcon();
+
+  themeBtn.addEventListener('click', () => {
+    const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+    updateIcon();
+  });
+</script>
+
+</body>
+</html>

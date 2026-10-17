@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Resume Builder — Rahul Salve</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="stylesheet" href="../project.css">
+</head>
+<body>
+
+<div class="wrap">
+
+  <div class="top-bar">
+    <a href="../index.html" class="back-link">← Back to portfolio</a>
+    <button class="theme-toggle" aria-label="Toggle theme">◐</button>
+  </div>
+
+  <header class="project-header">
+    <span class="project-date">2025</span>
+    <h1>AI Resume Builder</h1>
+    <div class="project-role">NLP · Flask · Template generation</div>
+    <p class="project-lede">
+      An NLP tool that generates ATS-friendly resumes from plain user input — no
+      templates to fight, no formatting that gets rejected.
+    </p>
+    <div class="project-actions">
+      <a href="https://github.com/rahulsalve2713/YOUR-REPO-NAME" target="_blank" rel="noopener" class="primary">View on GitHub →</a>
+    </div>
+  </header>
+
+  <section>
+    <h2>The problem</h2>
+    <p>
+      Job-seekers spend hours formatting resumes, ATS systems reject clean-looking
+      ones, and every template tool wants a subscription.
+    </p>
+    <p>
+      The frustrating part is that the rejection is invisible — you get no feedback,
+      you just never hear back. So the goal here was simple: output something a
+      parser can actually read.
+    </p>
+  </section>
+
+  <section>
+    <h2>What I built</h2>
+    <ul>
+      <li><strong>NLP-based parsing</strong> of user input</li>
+      <li><strong>ATS-optimized template generation</strong></li>
+      <li><strong>Flask backend</strong> handling the request flow</li>
+      <li><strong>Clean HTML output</strong> for export</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>How it works</h2>
+    <ol>
+      <li>User fills a structured input form</li>
+      <li>NLP parses and structures the content</li>
+      <li>Template engine generates an ATS-safe layout</li>
+      <li>Output is a downloadable, formatted resume</li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>What broke</h2>
+    <p>
+      <em>[Fill in — 1 to 2 paragraphs on what actually went wrong during development.]</em>
+    </p>
+    <p>
+      [Examples of what to write here: parsing fell apart when users typed in
+      free-form paragraphs instead of following the form, section detection
+      confused "Projects" with "Experience," the ATS-safe output looked so plain
+      that users didn't trust it, exported formatting shifted between HTML and
+      PDF. Pick what actually happened, describe it honestly, and note how you
+      worked around it.]
+    </p>
+  </section>
+
+  <section>
+    <h2>What I'd do differently</h2>
+    <p>
+      <em>[Fill in — the most important section on the page.]</em>
+    </p>
+    <p>
+      [One short paragraph on what you'd change if you started over. Examples:
+      "I'd define the resume data schema before writing any parsing logic," "I'd
+      test against 10 real resumes instead of my own," "I'd stop users from
+      entering free text and constrain the form harder." Recruiters scan for
+      this — it proves you can reflect, not just build.]
+    </p>
+  </section>
+
+  <section>
+    <h2>Tech stack</h2>
+    <div class="tech-chips">
+      <span>Python</span>
+      <span>NLP</span>
+      <span>Flask</span>
+    </div>
+  </section>
+
+  <footer class="project-footer">
+    <span>Rahul Salve · 2025</span>
+    <span>
+      <a href="../index.html">← Back</a> ·
+      <a href="https://github.com/rahulsalve2713/YOUR-REPO-NAME" target="_blank" rel="noopener">GitHub</a> ·
+      <a href="mailto:rahulsalve984@gmail.com">Email</a>
+    </span>
+  </footer>
+
+</div>
+
+<script>
+  const themeBtn = document.querySelector('.theme-toggle');
+  const root = document.documentElement;
+  const saved = localStorage.getItem('theme');
+  if (saved) root.setAttribute('data-theme', saved);
+  else if (window.matchMedia('(prefers-color-scheme: dark)').matches) root.setAttribute('data-theme', 'dark');
+
+  const updateIcon = () => {
+    themeBtn.textContent = root.getAttribute('data-theme') === 'dark' ? '☀' : '◐';
+  };
+  updateIcon();
+
+  themeBtn.addEventListener('click', () => {
+    const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+    updateIcon();
+  });
+</script>
+
+</body>
+</html>
