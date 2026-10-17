@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rahul Salve — Portfolio</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: system-ui, -apple-system, sans-serif;
+    background: #faf8f4;
+    color: #1a1a1a;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap { max-width: 720px; margin: 0 auto; padding: 60px 24px; }
+
+  /* ---------- HEADER ---------- */
+  header {
+    padding-bottom: 40px;
+    border-bottom: 1px solid #e5dfd5;
+    margin-bottom: 60px;
+  }
+  h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    margin-bottom: 12px;
+  }
+  .tagline { color: #6b6560; font-size: 1.05rem; }
+
+  /* ---------- SECTIONS ---------- */
+  section { margin-bottom: 60px; }
+  h2 {
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #6b6560;
+    font-weight: 500;
+    margin-bottom: 20px;
+  }
+  p { color: #3a3a3a; margin-bottom: 14px; }
+  p:last-child { margin-bottom: 0; }
+
+  /* ---------- PROJECTS ---------- */
+  .project {
+    padding: 20px 0;
+    border-bottom: 1px solid #e5dfd5;
+  }
+  .project:first-of-type { border-top: 1px solid #e5dfd5; }
+  .project h3 {
+    font-size: 1.15rem;
+    font-weight: 500;
+    margin-bottom: 4px;
+  }
+  .project .meta {
+    font-size: 0.82rem;
+    color: #6b6560;
+    margin-bottom: 8px;
+  }
+  .project p { font-size: 0.95rem; color: #3a3a3a; }
+
+  /* ---------- FORM ---------- */
+  form { display: flex; flex-direction: column; gap: 14px; }
+  label {
+    font-size: 0.82rem;
+    color: #6b6560;
+    margin-bottom: 4px;
+    display: block;
+  }
+  input, textarea {
+    width: 100%;
+    padding: 12px 14px;
+    font-family: inherit;
+    font-size: 0.95rem;
+    border: 1px solid #d6cfc2;
+    border-radius: 4px;
+    background: #fff;
+    color: #1a1a1a;
+  }
+  input:focus, textarea:focus {
+    outline: none;
+    border-color: #c4552b;
+  }
+  textarea { min-height: 120px; resize: vertical; }
+  button {
+    padding: 12px 24px;
+    background: #c4552b;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 0.9rem;
+    cursor: pointer;
+    align-self: flex-start;
+    transition: background 0.2s;
+  }
+  button:hover { background: #a8461f; }
+
+  /* ---------- FOOTER ---------- */
+  footer {
+    padding-top: 30px;
+    border-top: 1px solid #e5dfd5;
+    font-size: 0.82rem;
+    color: #6b6560;
+  }
+  footer a { color: #c4552b; text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <!-- =================== HEADER =================== -->
+  <header>
+    <h1>Rahul Salve</h1>
+    <p class="tagline">
+      Designer &amp; developer · Based in India
+    </p>
+  </header>
+
+
+  <!-- =================== ABOUT =================== -->
+  <section id="about">
+    <h2>About</h2>
+    <p>
+      Hi, I'm Rahul. I build things for the web — small tools,
+      clean interfaces, and occasionally something weird just for fun.
+    </p>
+    <p>
+      Currently a [your job title] at [wherever you work / study].
+      I care about thoughtful design, readable code, and shipping things
+      that actually work.
+    </p>
+  </section>
+
+
+  <!-- =================== PROJECTS =================== -->
+  <section id="work">
+    <h2>Selected work</h2>
+
+    <div class="project">
+      <h3>Project One</h3>
+      <p class="meta">2024 · Python, FastAPI</p>
+      <p>
+        One or two sentences about what it was, who it was for,
+        and what it actually did.
+      </p>
+    </div>
+
+    <div class="project">
+      <h3>Project Two</h3>
+      <p class="meta">2023 · React, CSS</p>
+      <p>
+        The problem, what you built, and what came out of it.
+        Keep it short — numbers beat adjectives.
+      </p>
+    </div>
+
+    <div class="project">
+      <h3>Project Three</h3>
+      <p class="meta">2023 · Design</p>
+      <p>
+        Anything you made that shows range — writing, design, research,
+        or a side project you stayed up late for.
+      </p>
+    </div>
+
+  </section>
+
+
+  <!-- =================== CONTACT FORM =================== -->
+  <section id="contact">
+    <h2>Get in touch</h2>
+    <p style="margin-bottom: 24px;">
+      Have a project, a question, or just want to say hi?
+      Fill in the form and it'll land straight in my inbox.
+    </p>
+
+    <form action="https://formspree.io/f/xeaenozo" method="POST">
+      <div>
+        <label for="name">Your name</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+
+      <div>
+        <label for="email">Your email</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+
+      <div>
+        <label for="message">Message</label>
+        <textarea id="message" name="message" required></textarea>
+      </div>
+
+      <button type="submit">Send message</button>
+    </form>
+  </section>
+
+
+  <!-- =================== FOOTER =================== -->
+  <footer>
+    <p>
+      © 2026 Rahul Salve ·
+      <a href="mailto:you@example.com">you@example.com</a> ·
+      <a href="https://github.com/rahulsalve2713">GitHub</a>
+    </p>
+  </footer>
+
+</div>
+
+</body>
+</html>
